@@ -23,3 +23,11 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+application {
+    mainClass.set("org.example.Main")
+}
+tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+    manifest {
+        attributes["Main-Class"] = "org.example.Main"
+    }
+}
